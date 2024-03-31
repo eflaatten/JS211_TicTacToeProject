@@ -1,3 +1,11 @@
+/* td{
+  height:150px;
+  width:150px;
+  text-align: center;
+  border: 5px solid black;
+  font-size: 100px;
+} */
+
 body {
   background-color: rgb(47, 147, 0);
 }
@@ -25,14 +33,12 @@ body {
   outline: none;
   color: black;
   background-color: transparent;
-  transition: 0.2s;
 }
 
 .reset-button button:hover {
   cursor: pointer;
-  font-size: 51px;
+  font-size: 55px;
   color: blue;
-  transition: 0.2s;
 }
 
 td {

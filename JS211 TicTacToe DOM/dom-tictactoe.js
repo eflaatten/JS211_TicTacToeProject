@@ -28,6 +28,10 @@ const handleClick = (element) => {
 
 const addMarker = (id) => {
   console.log(`We'll place a mark on square: ${id}`)
+
+  const row = parseInt(id.charAt(0))
+  const column = parseInt(id.charAt(2))
+  board[row][column] = currentMarker
   // @TODO, Mix & Match. 
   // You will need the following pieces:
 
@@ -35,9 +39,10 @@ const addMarker = (id) => {
   // .getElementById(id)
   // document
   // .innerHTML 
-  
+  document.getElementById(id).innerHTML = currentMarker
   // Arrange the above pieces into a single line of code
   // to add an X or O to the board to the DOM so it can be scene on the screen.
+  checkForWin()
 }
 
 // passes the element's id attribute from HTML to be used
@@ -57,7 +62,9 @@ const checkForWin = () => {
   // calls each checkForWin possibility and if any are true gives a page alert,
   if(horizontalWin() || verticalWin() || diagonalWin()) {
     // **BONUS** you could make the dismissal of this alert window reset the board...
-    window.alert(`Player ${currentMarker} won!`)
+    setTimeout(() => {
+      window.alert(`Player ${currentMarker} won!`)
+    }, 100);
   } else {
     // if no win, change the marker from X to O, or O to X for the next player.
     changeMarker()
@@ -66,14 +73,28 @@ const checkForWin = () => {
 
 const horizontalWin = () => {
   // @TODO, Your code here: to check for horizontal wins
+  return (
+    (board[0][0] === currentMarker && board[0][1] === currentMarker && board[0][2] === currentMarker) ||
+    (board[1][0] === currentMarker && board[1][1] === currentMarker && board[1][2] === currentMarker) || 
+    (board[2][0] === currentMarker && board[2][1] === currentMarker && board[2][2] === currentMarker)
+  )
 }
 
 const verticalWin = () => {
   // @TODO, Your code here: to check for vertical wins
+  return (
+    (board[0][0] === currentMarker && board[1][0] === currentMarker && board[2][0] === currentMarker) ||
+    (board[0][1] === currentMarker && board[1][1] === currentMarker && board[2][1] === currentMarker) ||
+    (board[0][2] === currentMarker && board[1][2] === currentMarker && board[2][2] === currentMarker)
+  )
 }
 
 const diagonalWin = () => {
   // @TODO, Your code here: to check for diagonal wins
+  return (
+    (board[0][0] === currentMarker && board[1][1] === currentMarker && board[2][2] === currentMarker) ||
+    (board[0][2] === currentMarker && board[1][1] === currentMarker && board[2][0] === currentMarker)
+  )
 }
 
 const changeMarker = () => {

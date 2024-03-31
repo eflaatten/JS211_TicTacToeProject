@@ -3,48 +3,45 @@
   <head>
     <meta charset="utf-8">
     <title>Tic Tac Toe</title>
-    <!-- link to CSS code -->
+    <!--bootstrap & style links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="tictactoe.css">
     <!-- link to JavaScript code -->
-    <script src="TTT-DOM.js"></script>
+    <script src="dom-tictactoe.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>Welcome to Tic Tac Toe!</h1>
-        <p>Get ready to play</p>
+        <h1>Welcome to Tic Tac Toe</h1>
+        <p>Get ready to play!</p>
         <!-- uses the built-in onclick attribute to call the resetBoard function -->
-        <div class="reset-button">
-          <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
-        </div>
+        <button onclick="resetBoard()" type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
       </div>
-      <table>
+
+      <table align="center">
         <tr>
-          <!-- the onclick calls a function called "handleClick" and passes itself to it -->
+          <!-- Each table-data (td) has an id that matches it's position in the array or arrays [0][1] -->
           <td id='0-0' onclick="handleClick(this)" ></td>
           <td id='0-1' onclick="handleClick(this)" ></td>
           <td id='0-2' onclick="handleClick(this)" ></td>
         </tr>
-        <!-- @TODO create new rows and cells for the rest of your TTT board. -->
-
         <tr>
+          <!-- onclick calls a function called handleClick and passes itself to it("this") -->
           <td id='1-0' onclick="handleClick(this)" ></td>
           <td id='1-1' onclick="handleClick(this)" ></td>
           <td id='1-2' onclick="handleClick(this)" ></td>
         </tr>
-
         <tr>
           <td id='2-0' onclick="handleClick(this)" ></td>
           <td id='2-1' onclick="handleClick(this)" ></td>
           <td id='2-2' onclick="handleClick(this)" ></td>
         </tr>
-        <!-- @TODO give each new cell an id & an event listener to call the "handleClick" function -->
       </table>
     </div>
   </body>
