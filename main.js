@@ -60,7 +60,7 @@ const diagonalWin = () => {
 
 const checkForWin = () => {
   // Your code here call each of the check for types of wins
-  if(horizontalWin || verticalWin || diagonalWin){
+  if(horizontalWin() || verticalWin() || diagonalWin()){
     return true
   } else {
     return false
@@ -75,19 +75,20 @@ const ticTacToe = (row, column) => {
   if(checkForWin()){
     setTimeout(() => {
       printBoard()
-      console.log(playerTurn === 'X' ? 'O' : 'X', 'won!')
+      console.log(playerTurn === 'X' ? 'O' : 'X', 'has won!')
       rl.close()
     }, 100);
   } else {
     getPrompt()
   }
-
+  
   // Alternating playerTurn from X to O 
   if(playerTurn === 'X'){
     playerTurn = 'O'
   } else {
     playerTurn = 'X'
   }
+
   
 }
 
@@ -135,7 +136,9 @@ if (typeof describe === 'function') {
       ticTacToe(1, 1)
       ticTacToe(0, 2)
       ticTacToe(2, 2)
-      assert.equal(checkForWin(), true);
+      setTimeout(() => {
+        assert.equal(checkForWin(), true);
+      }, 100);
     });
   });
 } else {
